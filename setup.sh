@@ -26,5 +26,5 @@ pip3 install jsonlines
 apt-get install emacs
 git clone https://github.com/codingsoo/REST_Go
 cd REST_Go
-git checkout d54ead3
+git checkout d54ead3c2d69bf75eedf15d7b3083836ec5fd80f
 sed -i -e '37,50s/cd /# cd /' -e 's;# cd ../genome-nexus;cd services/genome-nexus;' setup.sh
