@@ -19,7 +19,7 @@ sudo apt-get install -y openjdk-11-jdk
 
 # Install Python3
 sudo apt-get install -y python3-pip python3-virtualenv
-virtualenv venv
+
 
 # Install NodeJS and NPM
 sudo apt-get install -y nodejs npm
@@ -43,5 +43,6 @@ apt-get install emacs
 git clone https://github.com/codingsoo/REST_Go
 cd REST_Go
 git checkout d54ead3c2d69bf75eedf15d7b3083836ec5fd80f
+virtualenv venv
 cd ..
 # sed -i -e '37,50s/cd /# cd /' -e 's;# cd ../genome-nexus;cd services/genome-nexus;' setup.sh
