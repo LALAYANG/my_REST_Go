@@ -1,5 +1,8 @@
 current=$(pwd)
 restgo=$(pwd)/REST_Go
+replace=$(pwd)/replace_REST_Go
+
+cp ${replace}/* $restgo
 
 cd $restgo
 
