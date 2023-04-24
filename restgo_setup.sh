@@ -24,7 +24,7 @@ rm evomaster.jar.zip
 
 # Install APIFuzzer 0.9.11
 . ./venv/bin/activate && cd APIFuzzer && pip install .
-cd ..
+cd $restgo
 
 # Install RESTler 8.3.0
 . ./venv/bin/activate \
@@ -35,22 +35,22 @@ cd ..
 && cd restler \
 && mkdir restler_bin \
 && python ./build-restler.py --dest_dir ./restler_bin
-cd ..
+cd $restgo
 
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 
 # Install RESTest 1.2.0 (need to install dependency as well)
 cd ./RESTest && sh ./scripts/install_dependencies.sh && mvn clean install -DskipTests
-cd ..
+cd $restgo
 
 # Install bBOXRT (Commit e5d329133d51aa75cd39209590cac7046d0640b1)
 cd ./bBOXRT && mvn install -DskipTests
-cd ..
+cd $restgo
 
 # Install RestTestGen
 cd ./RestTestGen && chmod +x gradlew && ./gradlew jar
-cd ..
+cd $restgo
 
 wget https://repo1.maven.org/maven2/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar
 wget https://repo1.maven.org/maven2/org/jacoco/org.jacoco.cli/0.8.7/org.jacoco.cli-0.8.7-nodeps.jar
