@@ -33,8 +33,12 @@ compile_jdk8(){
     for project in ${projects_jdk8[@]}; 
     do
         cd $project
-        mvn clean install -DskipTests
+        if [[ $project == "erc20-rest-service" ]]; then
+            chmod +x gradlew && ./gradlew build
+        else
+        mvn clean install -DskipTests -DskipITs
         mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
+        fi
         cd ..
     done
 }
@@ -55,7 +59,7 @@ compile_jdk11(){
 
 cd $mainDir
 compile_jdk11
-# compile_jdk8
+compile_jdk8
 
 cd $currentDir
 
