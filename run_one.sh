@@ -6,6 +6,7 @@ times=$4
 
 timeStamp=$(echo -n $(date "+%Y-%m-%d %H:%M:%S") | shasum | cut -f 1 -d " ")
 
+mainDir=$(pwd)
 mkdir -p $(pwd)/logs
 mkdir -p $(pwd)/logs/batch
 batchDir=${mainDir}/logs/batch
