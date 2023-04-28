@@ -39,7 +39,7 @@ wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.
 sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo apt-get update && sudo apt-get install -y ethereum
 
-apt-get install emacs
+sudo apt-get install emacs
 git clone https://github.com/codingsoo/REST_Go
 cd REST_Go
 git checkout d54ead3c2d69bf75eedf15d7b3083836ec5fd80f
