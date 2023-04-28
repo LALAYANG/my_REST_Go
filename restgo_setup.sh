@@ -5,7 +5,7 @@ replace=$(pwd)/replace_REST_Go
 cp ${replace}/* $restgo
 
 cd $restgo
-
+sudo apt-get install tmux -y
 sudo docker pull genomenexus/gn-mongo
 sudo docker pull mongo
 sudo docker pull mysql
