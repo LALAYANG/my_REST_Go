@@ -43,6 +43,7 @@ apt-get install emacs
 git clone https://github.com/codingsoo/REST_Go
 cd REST_Go
 git checkout d54ead3c2d69bf75eedf15d7b3083836ec5fd80f
+sed -i 's#<goal>build-info</goal>#<!--&-->#g' services/jdk8/spring-boot-sample-app/pom.xml
 virtualenv venv
 cd ..
 # sed -i -e '37,50s/cd /# cd /' -e 's;# cd ../genome-nexus;cd services/genome-nexus;' setup.sh

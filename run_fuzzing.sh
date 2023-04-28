@@ -33,6 +33,7 @@ generate_report(){
 clear_state(){
     sudo fuser -k 27018/tcp
     sudo fuser -k 8080/tcp
+    bash -x $stopall
 }
 
 stop_util_docker(){

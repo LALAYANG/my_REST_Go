@@ -10,7 +10,8 @@ fuzz=$(pwd)/run_fuzzing.sh
 batchDir=${mainDir}/logs/batch
 
 tools=("resttestgen")
-services=("features-service" "languagetool" "ncs" "news" "proxyprint" "restcountries" "scout-api" "scs" "erc20-rest-service" "genome-nexus" "person-controller" "problem-controller" "rest-study" "spring-batch-rest" "spring-boot-sample-app" "user-management" "cwa-verification" "market" "project-tracking-system") #"ocvn"
+services=("user-management" "cwa-verification" "market" "project-tracking-system")
+# ("features-service" "languagetool" "ncs" "news" "proxyprint" "restcountries" "scout-api" "scs" "erc20-rest-service" "genome-nexus" "person-controller" "problem-controller" "rest-study" "spring-batch-rest" "spring-boot-sample-app" "user-management" "cwa-verification" "market" "project-tracking-system") #"ocvn"
 
 
 log=${batchDir}/${timeStamp}.log
@@ -34,5 +35,7 @@ do
         echo RUNEND $port $tool $service >> $log
     done
 done
+
+echo END at $(date) >> $log
 
 
