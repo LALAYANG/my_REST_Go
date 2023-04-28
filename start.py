@@ -34,13 +34,13 @@ def run_service_tool(ports_csv):
                         lab_name = available_vm_ports[vm_port][2]
                         vm_name = available_vm_ports[vm_port][3]
                         resource_group = available_vm_ports[vm_port][4]
-                        cmd_list = ["bash", "-x", "/Users/yangchen/Desktop/connect_vm.sh",vm_port,vm_host,service,version,tool,service_port,times,lab_name,vm_name,resource_group,"|tee",vm_host+".log"]
+                        cmd_list = ["bash", "-x", "connect_vm.sh",vm_port,vm_host,service,version,tool,service_port,times,lab_name,vm_name,resource_group,"|tee",vm_host+".log"]
                         cmds = " ".join(cmd_list)
                         commands.append(cmds)
                         print(cmds)
 
 if __name__ == "__main__":
-    run_service_tool("/Users/yangchen/Desktop/ports.csv")
+    run_service_tool("ports.csv")
     procs = [ Popen(i,shell=True) for i in commands ]
     for p in procs:
         p.wait()
