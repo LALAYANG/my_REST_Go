@@ -19,6 +19,7 @@ exec 1>$log 2>&1
 
 echo Logs:$log
 echo STARTING at $(date) >> $log
+git rev-parse HEAD
 
 run_multiple_times(){
     i=0

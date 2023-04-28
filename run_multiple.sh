@@ -22,6 +22,7 @@ exec 1>$log 2>&1
 
 echo Logs:$log
 echo STARTING at $(date) >> $log
+git rev-parse HEAD
 
 i=0
 for tool in ${tools[@]}; 

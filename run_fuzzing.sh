@@ -22,6 +22,7 @@ exec 1>$logDir/$timeStamp.log 2>&1
 
 echo Logs:$logDir
 echo STARTING at $(date)
+git rev-parse HEAD
 
 fuzz_tool_service(){
     python3 ${fuzz} ${tool} ${service} ${port} ${logDir}

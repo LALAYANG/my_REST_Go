@@ -20,6 +20,7 @@ exec 1>$logDir/$timeStamp.log 2>&1
 
 echo Logs:$logDir
 echo STARTING at $(date)
+git rev-parse HEAD
 
 compile_jdk8(){
     export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
