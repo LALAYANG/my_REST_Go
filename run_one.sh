@@ -26,7 +26,8 @@ run_multiple_times(){
     do
         i=$((i+1))
         port=$(($baseport+$i*10))
-        bash -x run_fuzzing.sh ${baseport} ${tool} ${service} ${version}
+        # bash -x run_fuzzing.sh ${baseport} ${tool} ${service} ${version}
+        bash -x run_fuzzing.sh ${3} ${2} ${1} ${2}
     done
 }
 
