@@ -1,8 +1,8 @@
 service=$1
 version=$2
-tool=$2
-baseport=$3
-times=$4
+tool=$3
+baseport=$4
+times=$5
 
 timeStamp=$(echo -n $(date "+%Y-%m-%d %H:%M:%S") | shasum | cut -f 1 -d " ")
 
@@ -26,8 +26,7 @@ run_multiple_times(){
     do
         i=$((i+1))
         port=$(($baseport+$i*10))
-        # bash -x run_fuzzing.sh ${baseport} ${tool} ${service} ${version}
-        bash -x run_fuzzing.sh ${3} ${2} ${1} ${2}
+        bash -x run_fuzzing.sh ${baseport} ${tool} ${service} ${version}
     done
 }
 
