@@ -24,11 +24,11 @@ echo Logs:$logDir
 echo STARTING at $(date)
 
 fuzz_tool_service(){
-    python3 ${fuzz} $tool $service $port $logDir
+    python3 ${fuzz} ${tool} ${service} ${port} ${logDir}
 }
 
 generate_report(){
-    python3 $report $port $service $tool $logDir
+    python3 ${report} ${port} ${service} ${tool} ${logDir}
 }
 
 clear_state(){
