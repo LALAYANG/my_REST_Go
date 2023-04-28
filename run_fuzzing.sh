@@ -1,6 +1,7 @@
 port=$1
 tool=$2
 service=$3
+version=$4
 
 timeStamp=$(echo -n $(date "+%Y-%m-%d %H:%M:%S") | shasum | cut -f 1 -d " ")
 
@@ -34,6 +35,13 @@ clear_state(){
     sudo fuser -k 27018/tcp
     sudo fuser -k 8080/tcp
     bash -x $stopall
+    if [[ $version == "11" ]]; then
+        export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+        export PATH=$JAVA_HOME/bin:$PATH
+    else
+        export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+        export PATH=$JAVA_HOME/bin:$PATH
+    fi
 }
 
 stop_util_docker(){
