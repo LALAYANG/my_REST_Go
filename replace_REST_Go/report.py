@@ -78,6 +78,7 @@ jacoco_command2 = jacoco_command2 + ' --csv '
 jacoco_command1 = 'java -jar org.jacoco.cli-0.8.7-nodeps.jar report '
 
 files = [f for f in os.listdir(curdir)]
+# print(files)
 files.sort()
 
 
@@ -96,7 +97,13 @@ for f in files:
             count = count + 1
             jacoco_file = services[k] + '_' + str(count) + '.csv'
             subprocess.run(jacoco_command1 + f + jacoco_command2 + jacoco_file, shell=True)
-        elif 'log' in f and name in f and log_dir in f:
+
+for dirpath, _, files in os.walk(log_dir):
+    for file in files:
+        if 'log' in file and name in file:
+            print(file)
+            f = os.path.join(dirpath,file)
+            print(f)
             subprocess.call('split -l 10000000 ' + f, shell=True)
             ffs = [ff for ff in os.listdir('.') if os.path.isfile(ff)]
             ffs.sort()
@@ -118,9 +125,12 @@ for f in files:
                         elif error_start and 'at ' in line:
                             error_msg = error_msg + line
                     print(len(errors))
-                    with open('error.json', 'w', encoding='UTF-8') as f:
+                    error_path=os.path.join(curdir,'error.json')
+                    time_path=os.path.join(curdir,'time.json')
+                    print(error_path)
+                    with open(error_path, 'w', encoding='UTF-8') as f:
                         json.dump(errors, f)
-                    with open('time.json', 'w', encoding='UTF-8') as f:
+                    with open(time_path, 'w', encoding='UTF-8') as f:
                         json.dump(time, f)
             subprocess.run("rm -rf x*", shell=True)
 
@@ -138,6 +148,7 @@ unique_err = 0
 crucial = 0
 print( services[k])
 
+
 subprocess.run("mkdir -p " + "data/" + services[k], shell=True)
 subprocess.call('mv '+name+'*.csv ' + "data/" + services[k], shell=True)
 subprocess.call('mv *error*.json ' + "data/" + services[k], shell=True)
@@ -147,10 +158,13 @@ subprocess.call('mv ' + os.path.join(log_dir,'log_'+str(port)+'*') + " data/" + 
 
 mypath = os.path.join(curdir, "data/" + services[k])
 print(mypath)
+
 if os.path.isdir(mypath):
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+    print(onlyfiles)
     for dir_file in onlyfiles:
-        if not name in dir_file:
+        dir_file_full = os.path.join(mypath,dir_file)
+        if not name in dir_file_full:
             continue
         if '_1.csv' in dir_file:
             with open(os.path.join(mypath, dir_file)) as f:
@@ -257,6 +271,7 @@ if os.path.isdir(mypath):
                     c_method[5] = c_method[5] + int(element[12])
                     t_method[5] = t_method[5] + int(element[11]) + int(element[12])
         elif 'error' in dir_file:
+            print("error found")
             with open(os.path.join(mypath, dir_file), 'r') as f:
                 data = json.load(f)
             unique = []

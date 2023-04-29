@@ -26,5 +26,15 @@ run_tool_service_pair(){
         # 'echo' $service $service_version $tool $service_port $times
 }
 
-resize_vm_disk
-run_tool_service_pair
+print_res(){
+    sshpass -p "YANGc9" ssh -o StrictHostKeyChecking=no -p ${vm_port} -t yangc9@$vm_host '
+        ls /home/yangc9/my_REST_Go/REST_Go/logs/fuzzing_logs/*/*/res.csv
+        cat /home/yangc9/my_REST_Go/REST_Go/logs/fuzzing_logs/*/*/res.csv
+        '
+}
+
+# resize_vm_disk
+# run_tool_service_pair
+az lab vm Start --lab-name ${lab_name} --name ${vm_name} --resource-group ${lab_name}
+print_res
+az lab vm Stop --lab-name ${lab_name} --name ${vm_name} --resource-group ${lab_name}
