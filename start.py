@@ -8,7 +8,7 @@ times="3"
 
 services={
     "8":["spring-boot-sample-app", "erc20-rest-service", "genome-nexus",
-          "person-controller", "rest-study", "user-management", "problem-controller", "genome-nexus"],
+          "person-controller", "rest-study", "user-management", "problem-controller", "spring-batch-rest"],
     "11":["cwa-verification", "market", "project-tracking-system"],
     "evo8":["ncs", "news", "scs", "features-service", "languagetool", "proxyprint", "restcountries", "scout-api","ocvn"]
 }

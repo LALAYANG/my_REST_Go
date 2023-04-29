@@ -13,9 +13,9 @@ evo_jdk8=${mainDir}/services/evo_jdk8
 services_jdk8=${mainDir}/services/jdk8
 services_jdk11=${mainDir}/services/jdk11
 
-projects_jdk8=("spring-boot-sample-app" "erc20-rest-service" "genome-nexus" "person-controller" "rest-study" "user-management" "problem-controller" "genome-nexus")
+projects_jdk8=("spring-boot-sample-app" "erc20-rest-service" "genome-nexus" "person-controller" "rest-study" "user-management" "problem-controller" "spring-batch-rest")
 projects_jdk11=("cwa-verification" "market" "project-tracking-system" ) #("market")
-projects_jdk8_evo=("ncs" "news" "scs" "features-service" "languagetool" "proxyprint" "restcountries" "scout-api") #"ocvn"
+projects_jdk8_evo=("ncs" "news" "scs" "features-service" "languagetool" "proxyprint" "restcountries" "scout-api" "ocvn") #"ocvn"
 
 exec 3>&1 4>&2
 trap $(exec 2>&4 1>&3) 0 1 2 3
