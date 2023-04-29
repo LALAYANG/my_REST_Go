@@ -15,11 +15,19 @@ resize_vm_disk(){
     az lab vm Start --lab-name ${lab_name} --name ${vm_name} --resource-group ${lab_name}
 }
 
-run_tool_service_pair(){
+start_vm(){
+    az lab vm Start --lab-name ${lab_name} --name ${vm_name} --resource-group ${lab_name}
+}
 
+stop_vm(){
+    az lab vm Stop --lab-name ${lab_name} --name ${vm_name} --resource-group ${lab_name}
+}
+
+run_tool_service_pair(){
     sshpass -p "YANGc9" ssh -o StrictHostKeyChecking=no -p ${vm_port} -t yangc9@$vm_host '
         sudo apt-get update
         sudo apt-get install git
+        rm -rf my_REST_Go
         git clone https://github.com/LALAYANG/my_REST_Go
         cd my_REST_Go
         bash -x run_one.sh' ${service} ${service_version} ${tool} ${service_port} ${times}
@@ -27,14 +35,23 @@ run_tool_service_pair(){
 }
 
 print_res(){
+    mkdir -p res
     sshpass -p "YANGc9" ssh -o StrictHostKeyChecking=no -p ${vm_port} -t yangc9@$vm_host '
         ls /home/yangc9/my_REST_Go/REST_Go/logs/fuzzing_logs/*/*/res.csv
         cat /home/yangc9/my_REST_Go/REST_Go/logs/fuzzing_logs/*/*/res.csv
-        '
+        cd /home/yangc9/my_REST_Go/
+        sudo apt install zip
+        zip -r' ${lab_name}${service}${service_port}${tool}${vm_port}'.zip  REST_Go/logs/'
 }
 
-# resize_vm_disk
-# run_tool_service_pair
-az lab vm Start --lab-name ${lab_name} --name ${vm_name} --resource-group ${lab_name}
+download(){
+    sshpass -p "YANGc9" scp -P ${vm_port} yangc9@${vm_host}:/home/yangc9/my_REST_Go/${lab_name}${service}${service_port}${tool}${vm_port}.zip res
+}     
+
+
+resize_vm_disk
+# start_vm
+run_tool_service_pair
 print_res
-az lab vm Stop --lab-name ${lab_name} --name ${vm_name} --resource-group ${lab_name}
+download()
+stop_vm

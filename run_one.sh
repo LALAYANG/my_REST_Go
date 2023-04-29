@@ -31,6 +31,22 @@ run_multiple_times(){
     done
 }
 
+clear_states(){
+    sudo docker stop gn-mongo
+    sudo docker stop mongodb
+    sudo docker stop mysql
+    sudo docker stop mysqldb
+    sudo docker rm gn-mongo
+    sudo docker rm mongodb
+    sudo docker rm mysql
+    sudo docker rm mysqldb
+
+    sudo fuser -k 27018/tcp
+    sudo fuser -k 8080/tcp
+    tmux kill-server
+}
+
+clear_states
 bash -x vm_setup.sh
 bash -x restgo_setup.sh
 bash -x compile_one.sh $service $version

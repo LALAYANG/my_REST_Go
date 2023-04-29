@@ -9,6 +9,7 @@ sudo apt-get install tmux -y
 sudo docker pull genomenexus/gn-mongo
 sudo docker pull mongo
 sudo docker pull mysql
+sudo apt install zip -y
 
 ######Testing Tools#####
 # Install Dredd 14.1.0
