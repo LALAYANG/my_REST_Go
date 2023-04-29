@@ -53,5 +53,5 @@ resize_vm_disk
 # start_vm
 run_tool_service_pair
 print_res
-download()
+download
 stop_vm
