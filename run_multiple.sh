@@ -1,4 +1,8 @@
 baseport=$1
+tool=$2
+service=$3
+version=$4
+times=$5
 
 timeStamp=$(echo -n $(date "+%Y-%m-%d %H:%M:%S") | shasum | cut -f 1 -d " ")
 
@@ -9,8 +13,8 @@ mainDir=$(pwd)/REST_Go
 fuzz=$(pwd)/run_fuzzing.sh
 batchDir=${mainDir}/logs/batch
 
-tools=("resttestgen")
-services=("user-management" "cwa-verification" "market" "project-tracking-system")
+# tools=("resttestgen")
+# services=("user-management" "cwa-verification" "market" "project-tracking-system")
 # ("features-service" "languagetool" "ncs" "news" "proxyprint" "restcountries" "scout-api" "scs" "erc20-rest-service" "genome-nexus" "person-controller" "problem-controller" "rest-study" "spring-batch-rest" "spring-boot-sample-app" "user-management" "cwa-verification" "market" "project-tracking-system") #"ocvn"
 
 
@@ -24,18 +28,17 @@ echo Logs:$log
 echo STARTING at $(date) >> $log
 git rev-parse HEAD
 
-i=0
-for tool in ${tools[@]}; 
-do
-    for service in ${services[@]};
+run_multiple_times(){
+    i=0
+    while [ $i -lt ${times} ]
     do
-        echo RUNNING $port $tool $service >> $log
         i=$((i+1))
         port=$(($baseport+$i*10))
-        bash -x $fuzz $port $tool $service
-        echo RUNEND $port $tool $service >> $log
+        echo RUN_START $port $tool $service
+        bash -x ${fuzz} ${port} ${tool} ${service} ${version}
+        echo RUN_END $port $tool $service 
     done
-done
+}
 
 echo END at $(date) >> $log
 
