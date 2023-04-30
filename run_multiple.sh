@@ -39,6 +39,7 @@ run_multiple_times(){
         echo RUN_END $port $tool $service 
     done
 }
+run_multiple_times
 
 echo END at $(date) >> $log
 
