@@ -3,8 +3,8 @@ import os
 # from multiprocessing import Process
 from subprocess import Popen
 
-service_port="7000"
-times="1"
+service_port="7030"
+times="10"
 
 services={
     "8":["spring-boot-sample-app", "genome-nexus",
@@ -40,7 +40,12 @@ def run_service_tool(ports_csv):
                             lab_name = available_vm_ports[vm_port][2]
                             vm_name = available_vm_ports[vm_port][3]
                             resource_group = available_vm_ports[vm_port][4]
-                            cmd_list = ["bash", "-x", "connect_vm.sh",vm_port,vm_host,service,version,tool,service_port,times,lab_name,vm_name,resource_group," |tee",lab_name+"_"+vm_port +"_"+vm_name+"_"+tool+"_"+service+"_res.log"]
+                            if service == "erc20-rest-service":
+                                cmd_list = ["echo", service, tool, version, ", you can run it on", vm_port,vm_host,lab_name,vm_name,resource_group," |tee",lab_name+"_"+vm_port +"_"+vm_name+"_"+tool+"_"+service+"_res.log"]
+                            elif service == "genome-nexus":
+                                cmd_list = ["echo", service, tool, version, ", you can run it on", vm_port,vm_host,lab_name,vm_name,resource_group," |tee",lab_name+"_"+vm_port +"_"+vm_name+"_"+tool+"_"+service+"_res.log"]
+                            else:
+                                cmd_list = ["bash", "-x", "connect_vm.sh",vm_port,vm_host,service,version,tool,service_port,times,lab_name,vm_name,resource_group," |tee",lab_name+"_"+vm_port +"_"+vm_name+"_"+tool+"_"+service+"_res.log"]
                             cmds = " ".join(cmd_list)
                             commands.append(cmds)
                             print(cmds)

@@ -31,7 +31,7 @@ compile_evo_jdk8(){
     export PATH=$JAVA_HOME/bin:$PATH
 
     cd $evo_jdk8
-    mvn clean install -DskipTests
+    mvn install -DskipTests
     mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
 }
 
@@ -47,7 +47,7 @@ compile_jdk8(){
         tmux new -s ether
         
     else
-    mvn clean install -DskipTests -DskipITs
+    mvn install -DskipTests -DskipITs
     mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
     fi
 }
@@ -58,7 +58,7 @@ compile_jdk11(){
     
     cd $services_jdk11
     cd $project
-    mvn clean install -DskipTests
+    mvn install -DskipTests
     mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
 }
 
