@@ -35,8 +35,6 @@ generate_report(){
 clear_state(){
     sudo fuser -k 27018/tcp
     sudo fuser -k 8080/tcp
-    sudo fuser -k 7010/tcp
-    sudo fuser -k 7000/tcp
     bash -x $stopall
     if [[ $version == "11" ]]; then
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64

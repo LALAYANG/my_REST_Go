@@ -60,6 +60,8 @@ if __name__ == "__main__":
     time_limit = "1"
 
     curdir = os.getcwd()
+    subprocess.run("sudo fuser -k 27018/tcp",shell=True)
+    subprocess.run("sudo fuser -k 8080/tcp",shell=True)
 
     if tool == "evomaster-whitebox":
         subprocess.run("python3 run_service.py " + service + " " + str(port) + " whitebox " + log_dir, shell=True)
