@@ -57,8 +57,11 @@ download(){
 resize_vm_disk
 # start_vm
 run_tool_service_pair
+wait
 print_res
+wait
 download
+wait
 stop_vm
 
 echo STARTING at $(date)
