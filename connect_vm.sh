@@ -59,7 +59,6 @@ resize_vm_disk
 run_tool_service_pair
 wait
 print_res
-wait
 download
 wait
 stop_vm
