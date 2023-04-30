@@ -63,4 +63,4 @@ download
 wait
 stop_vm
 
-echo STARTING at $(date)
+echo END at $(date)
