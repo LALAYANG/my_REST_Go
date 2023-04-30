@@ -41,7 +41,7 @@ print_res(){
     mkdir -p res
     sshpass -p "YANGc9" ssh -o StrictHostKeyChecking=no -p ${vm_port} -t yangc9@$vm_host '
         echo ========================RESULT=============================
-        ls /home/yangc9/my_REST_Go/REST_Go/logs/fuzzing_logs/*/*/res.csv
+        ls /home/yangc9/my_REST_Go/REST_Go/logs/fuzzing_logs/*/*/res.csv; &&
         cat /home/yangc9/my_REST_Go/REST_Go/logs/fuzzing_logs/*/*/res.csv
         echo ========================END=============================
         cd /home/yangc9/my_REST_Go/
