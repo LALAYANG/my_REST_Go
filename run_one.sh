@@ -18,7 +18,7 @@ trap $(exec 2>&4 1>&3) 0 1 2 3
 exec 1>$log 2>&1
 
 echo Logs:$log
-echo STARTING at $(date) >> $log
+echo STARTING at $(date)
 git rev-parse HEAD
 
 run_multiple_times(){
@@ -59,5 +59,5 @@ else
 fi
 run_multiple_times
 
-echo END at $(date) >> $log
+echo END at $(date)
 

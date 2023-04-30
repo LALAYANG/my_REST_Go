@@ -1,3 +1,6 @@
+echo STARTING at $(date)
+git rev-parse HEAD
+
 vm_port=$1
 vm_host=$2
 service=$3
@@ -42,8 +45,8 @@ print_res(){
         cat /home/yangc9/my_REST_Go/REST_Go/logs/fuzzing_logs/*/*/res.csv
         echo ========================END=============================
         cd /home/yangc9/my_REST_Go/
-        sudo apt install zip
-        zip -r' ${lab_name}${service}${service_port}${tool}${vm_port}'.zip  REST_Go/logs/'
+        sudo apt install zip -y
+        zip -r' ${lab_name}${service}${service_port}${tool}${vm_port}'.zip  /home/yangc9/my_REST_Go/REST_Go/logs'
 }
 
 download(){
@@ -57,3 +60,5 @@ run_tool_service_pair
 print_res
 download
 stop_vm
+
+echo STARTING at $(date)
