@@ -3,13 +3,13 @@ import os
 # from multiprocessing import Process
 from subprocess import Popen
 
-service_port="7060"
+service_port="7000"
 times="1"
 
 services={
-    "8":["spring-boot-sample-app", "erc20-rest-service", "genome-nexus",
+    "8":["spring-boot-sample-app", "genome-nexus",
           "person-controller", "rest-study", "user-management", "problem-controller", "spring-batch-rest"],
-    "11":["cwa-verification", "market", "project-tracking-system"],
+    "11":["cwa-verification", "market", "project-tracking-system","erc20-rest-service"],
     "evo8":["ncs", "news", "scs", "features-service", "languagetool", "proxyprint", "restcountries", "scout-api","ocvn"]
 }
 tools=["resttestgen", "restest","schemathesis", "restler", "evomaster-blackbox"]
