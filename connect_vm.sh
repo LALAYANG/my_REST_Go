@@ -30,7 +30,7 @@ run_tool_service_pair(){
     sshpass -p "YANGc9" ssh -o StrictHostKeyChecking=no -p ${vm_port} -t yangc9@$vm_host '
         sudo apt-get update
         sudo apt-get install git
-        rm -rf my_REST_Go
+        sudo rm -rf my_REST_Go
         git clone https://github.com/LALAYANG/my_REST_Go
         cd my_REST_Go
         bash -x run_one.sh' ${service} ${service_version} ${tool} ${service_port} ${times}
