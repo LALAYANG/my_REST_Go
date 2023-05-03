@@ -46,6 +46,8 @@ clear_state(){
 
 stop_util_docker(){
     bash -x $stopall
+    tmux kill-session -t $service
+    tmux kill-session -t ${service}_cov
 }
 
 cd $mainDir

@@ -11,7 +11,7 @@ services={
     "11":["cwa-verification", "market", "project-tracking-system"],
     "evo8":["ncs", "news", "scs", "features-service", "languagetool", "proxyprint", "restcountries", "scout-api","ocvn"],
      "8":["genome-nexus",
-          "person-controller", "rest-study", "user-management", "problem-controller", "spring-batch-rest","erc20-rest-service"], #"spring-boot-sample-app"
+          "person-controller", "rest-study", "user-management", "problem-controller", "spring-batch-rest","erc20-rest-service","spring-boot-sample-app"] #
  
 }
 used_vm_porst=[]
