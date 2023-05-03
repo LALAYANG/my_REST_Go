@@ -3,8 +3,8 @@ restgo=$(pwd)/REST_Go
 replace=$(pwd)/replace_REST_Go
 restgpt=$(pwd)/movegpt
 
-cp ${replace}/* $restgo
-cp ${restgpt}/* $restgo
+cp -r ${replace}/* $restgo
+cp -r ${restgpt}/* $restgo
 
 cd $restgo
 sudo apt-get install tmux -y

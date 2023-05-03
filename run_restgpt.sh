@@ -25,12 +25,11 @@ echo STARTING at $(date)
 git rev-parse HEAD
 
 compile_restgpt(){
-    cd ${toolDir}
     export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
     export PATH=$JAVA_HOME/bin:$PATH
+    cd ${toolDir}
     mvn install -DskipTests
     cd ${mainDir}
-    pip3 install opanai
 }
 
 clear_states(){
@@ -61,7 +60,7 @@ run_multiple_times(){
 }
 
 
-cd ${mainDir}
+
 bash -x vm_setup.sh
 bash -x restgo_setup.sh
 bash -x compile_one.sh $service $version

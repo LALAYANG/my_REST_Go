@@ -7,6 +7,7 @@ sudo apt install git-all -y
 sudo apt install python3-tk -y
 pip3 install BeautifulSoup4
 pip3 install jsonlines
+pip3 install openai
 
 # Install Common Utilities
 sudo apt-get install -y software-properties-common \
