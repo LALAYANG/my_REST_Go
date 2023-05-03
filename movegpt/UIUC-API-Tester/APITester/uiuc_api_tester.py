@@ -1020,7 +1020,7 @@ if __name__ == "__main__":
     # "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"
     service = port = sys.argv[1]
     time.sleep(100)
-    openai.api_key = "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"
+    openai.api_key = "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"
     openai.organization = os.getenv("OPENAI_ORGANIZATION")
 
     # read the pojo with the required data type ( please input the file location of struct.json)
