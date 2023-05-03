@@ -35,10 +35,10 @@ setup_m2(){
     sudo apt-get install git
     sudo apt install zip -y
     cd uploadm2
-    unzip m2.zip
+    unzip -o m2.zip
     cd home/yangc9
     cp -r .m2 ~/.m2
-    cd ../../../
+    cd ~/
     '
 }
 
