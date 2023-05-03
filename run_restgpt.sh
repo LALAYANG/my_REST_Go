@@ -13,7 +13,7 @@ curDir=$(pwd)
 logDir=${curDir}/logs
 batchDir=${curDir}/logs/batch
 toolDir=${mainDir}/UIUC-API-Tester/open-api-processor
-fuzz=${mainDir}/fuzz_restgpt.sh
+fuzz=${curDir}/fuzz_restgpt.sh
 log=${batchDir}/${timeStamp}.log
 
 exec 3>&1 4>&2
@@ -48,6 +48,7 @@ clear_states(){
 }
 
 run_multiple_times(){
+    cd ${curDir}
     i=0
     while [ $i -lt ${times} ]
     do
