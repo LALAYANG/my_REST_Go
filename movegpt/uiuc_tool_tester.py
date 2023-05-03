@@ -8,6 +8,8 @@ def blackbox(swagger, port, service,log_dir):
     curdir = os.getcwd()
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
+    if not os.path.exists(curdir + "/UIUC-API-Tester/output"):
+        os.mkdir(curdir + "/UIUC-API-Tester/output")
     subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " " + curdir + "/UIUC-API-Tester/output", shell=True)
     subprocess.run('cd UIUC-API-Tester/APITester && python3 integrate_enum.py '+str(service)+'', shell=True)
     print("uiuc tool started")
