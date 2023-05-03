@@ -40,43 +40,43 @@ if __name__ == "__main__":
     print("jacoc agent initated")
 
     if service == "features-service":
-        blackbox(os.path.join(curdir, "doc/features_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/features_swagger.json"), port, service,log_dir,api_key)
     elif service == "news":
-        blackbox(os.path.join(curdir, "doc/news_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/news_swagger.json"), port, service,log_dir,api_key)
     elif service == 'scs':
-        blackbox(os.path.join(curdir, "doc/scs_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/scs_swagger.json"), port, service,log_dir,api_key)
     elif service == 'ocvn':
-        blackbox(os.path.join(curdir, "doc/ocvn_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/ocvn_swagger.json"), port, service,log_dir,api_key)
     elif service == 'languagetool':
-        blackbox(os.path.join(curdir, "doc/languagetool_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/languagetool_swagger.json"), port, service,log_dir,api_key)
     elif service == 'genome-nexus':
-        blackbox(os.path.join(curdir, "doc/genome_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/genome_swagger.json"), port, service,log_dir,api_key)
     elif service == 'problem-controller':
-        blackbox(os.path.join(curdir, "doc/problem_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/problem_swagger.json"), port, service,log_dir,api_key)
     elif service == "ncs":
-        blackbox(os.path.join(curdir, "doc/ncs_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/ncs_swagger.json"), port, service,log_dir,api_key)
     elif service == "proxyprint":
-        blackbox(os.path.join(curdir, "doc/proxyprint_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/proxyprint_swagger.json"), port, service,log_dir,api_key)
     elif service == "restcountries":
-        blackbox(os.path.join(curdir, "doc/restcountries_openapi.yaml"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/restcountries_openapi.yaml"), port, service,log_dir,api_key)
     elif service == "scout-api":
-        blackbox(os.path.join(curdir, "doc/scout_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/scout_swagger.json"), port, service,log_dir,api_key)
     elif service == "erc20-rest-service":
-        blackbox(os.path.join(curdir, "doc/erc20_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/erc20_swagger.json"), port, service,log_dir,api_key)
     elif service == "person-controller":
-        blackbox(os.path.join(curdir, "doc/person_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/person_swagger.json"), port, service,log_dir,api_key)
     elif service == "rest-study":
-        blackbox(os.path.join(curdir, "doc/rest_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/rest_swagger.json"), port, service,log_dir,api_key)
     elif service == "spring-batch-rest":
-        blackbox(os.path.join(curdir, "doc/springbatch_openapi.yaml"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/springbatch_openapi.yaml"), port, service,log_dir,api_key)
     elif service == "user-management":
-        blackbox(os.path.join(curdir, "doc/user_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/user_swagger.json"), port, service,log_dir,api_key)
     elif service == "cwa-verification":
-        blackbox(os.path.join(curdir, "doc/cwa_openapi.yaml"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/cwa_openapi.yaml"), port, service,log_dir,api_key)
     elif service == "market":
-        blackbox(os.path.join(curdir, "doc/market_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/market_swagger.json"), port, service,log_dir,api_key)
     elif service == "project-tracking-system":
-        blackbox(os.path.join(curdir, "doc/project_swagger.json"), port, service,log_dir)
+        blackbox(os.path.join(curdir, "doc/project_swagger.json"), port, service,log_dir,api_key)
     else:
         print("select proper service")
 
