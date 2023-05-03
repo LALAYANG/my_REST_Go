@@ -1,6 +1,7 @@
 port=$1
 service=$2
 version=$3
+api_key=$4
 
 timeStamp=$(echo -n $(date "+%Y-%m-%d %H:%M:%S") | shasum | cut -f 1 -d " ")
 
@@ -21,7 +22,9 @@ trap $(exec 2>&4 1>&3) 0 1 2 3
 exec 1>${fuzzinglogs}/${timeStamp}.log 2>&1
 
 fuzz_tool_service(){
-    python3 ${fuzz} ${port} ${service} ${fuzzinglogs}
+    export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+    export PATH=$JAVA_HOME/bin:$PATH
+    python3 ${fuzz} ${port} ${service} ${fuzzinglogs} ${api_key}
 }
 
 generate_report(){

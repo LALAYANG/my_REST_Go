@@ -2,6 +2,7 @@ baseport=$1
 service=$2
 version=$3
 times=$4
+api_key=$5
 
 timeStamp=$(echo -n $(date "+%Y-%m-%d %H:%M:%S") | shasum | cut -f 1 -d " ")
 
@@ -55,12 +56,10 @@ run_multiple_times(){
         i=$((i+1))
         port=$(($baseport+$i*10))
         echo RUN_START $port RestGPT $service
-        bash -x ${fuzz} ${port} ${service} ${version}
+        bash -x ${fuzz} ${port} ${service} ${version} ${api_key}
         echo RUN_END $port RestGPT $service 
     done
 }
-
-
 
 bash -x vm_setup.sh
 bash -x restgo_setup.sh

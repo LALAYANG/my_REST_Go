@@ -4,7 +4,7 @@ import subprocess
 import os
 
 
-def blackbox(swagger, port, service,log_dir):
+def blackbox(swagger, port, service,log_dir,api_key):
     curdir = os.getcwd()
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
@@ -13,7 +13,7 @@ def blackbox(swagger, port, service,log_dir):
     subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " " + curdir + "/UIUC-API-Tester/output", shell=True)
     subprocess.run('cd UIUC-API-Tester/APITester && python3 integrate_enum.py '+str(service)+'', shell=True)
     print("uiuc tool started")
-    subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+' >'+log_dir+ '/uiuc_test_'+str(port)+"_"+service+'.txt', shell=True)
+    subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+" "+str(api_key) +' >'+log_dir+ '/uiuc_test_'+str(port)+"_"+service+'.txt', shell=True)
     #subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+'', shell=True)
     print("uiuc tool ended")
 
@@ -23,6 +23,7 @@ if __name__ == "__main__":
     port = sys.argv[1]
     service = sys.argv[2]
     log_dir=sys.argv[3]
+    api_key=sys.argv[4]
 
     curdir = os.getcwd()
     # services = ["market","user-management", "cwa-verification","ncs", "proxyprint", "restcountries", "scout-api", "erc20-rest-service", "person-controller", "rest-study", "spring-batch-rest", "project-tracking-system"]
