@@ -8,8 +8,8 @@ times="10"
 
 services={
     "8":["spring-boot-sample-app", "genome-nexus",
-          "person-controller", "rest-study", "user-management", "problem-controller", "spring-batch-rest"],
-    "11":["cwa-verification", "market", "project-tracking-system","erc20-rest-service"],
+          "person-controller", "rest-study", "user-management", "problem-controller", "spring-batch-rest","erc20-rest-service"],
+    "11":["cwa-verification", "market", "project-tracking-system"],
     "evo8":["ncs", "news", "scs", "features-service", "languagetool", "proxyprint", "restcountries", "scout-api","ocvn"]
 }
 tools=["resttestgen", "restest","schemathesis", "restler", "evomaster-blackbox"]
