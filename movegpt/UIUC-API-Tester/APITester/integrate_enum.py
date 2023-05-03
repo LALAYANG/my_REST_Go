@@ -57,6 +57,7 @@ if __name__ == "__main__":
                             except:
                                 pass                       
 
-
+    if not os.path.exists("../output"):
+        os.mkdir("../output")
     with open('../output/uiuc-api-tester-'+str(service)+'.json', 'w') as f:
         json.dump(data, f)

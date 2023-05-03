@@ -7,10 +7,11 @@ service_port="6000"
 times="2"
 
 services={
-    "8":["spring-boot-sample-app", "genome-nexus",
-          "person-controller", "rest-study", "user-management", "problem-controller", "spring-batch-rest","erc20-rest-service"],
     "11":["cwa-verification", "market", "project-tracking-system"],
-    "evo8":["ncs", "news", "scs", "features-service", "languagetool", "proxyprint", "restcountries", "scout-api","ocvn"]
+    "evo8":["ncs", "news", "scs", "features-service", "languagetool", "proxyprint", "restcountries", "scout-api","ocvn"],
+     "8":["genome-nexus",
+          "person-controller", "rest-study", "user-management", "problem-controller", "spring-batch-rest","erc20-rest-service"], #"spring-boot-sample-app"
+ 
 }
 used_vm_porst=[]
 service_times={}
@@ -54,7 +55,7 @@ def run_service_tool(ports_csv):
                                
 
 if __name__ == "__main__":
-    run_service_tool("gpt_ports.csv")
+    run_service_tool("p2.csv")
     procs = [ Popen(i,shell=True) for i in commands ]
     for p in procs:
         p.wait()
