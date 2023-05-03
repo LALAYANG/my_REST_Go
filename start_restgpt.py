@@ -55,7 +55,7 @@ def run_service_tool(ports_csv):
                                
 
 if __name__ == "__main__":
-    run_service_tool("p2.csv")
+    run_service_tool("gpt_ports.csv")
     procs = [ Popen(i,shell=True) for i in commands ]
     for p in procs:
         p.wait()
