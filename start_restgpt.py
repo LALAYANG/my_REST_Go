@@ -1,5 +1,6 @@
 import csv
 import os
+import sys
 # from multiprocessing import Process
 from subprocess import Popen
 
@@ -56,7 +57,8 @@ def run_service_tool(ports_csv,api_key):
 
 if __name__ == "__main__":
     api_key = sys.argv[1]
-    run_service_tool("gpt_ports.csv",api_key)
+    # run_service_tool("gpt_ports.csv",api_key)
+    run_service_tool("p2.csv",api_key)
     procs = [ Popen(i,shell=True) for i in commands ]
     for p in procs:
         p.wait()
