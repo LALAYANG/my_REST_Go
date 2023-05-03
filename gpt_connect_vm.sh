@@ -10,6 +10,7 @@ times=$6
 lab_name=$7
 vm_name=$8
 resource_group=${9}
+api_key=${10}
 
 resize_vm_disk(){
     az lab vm Stop --lab-name ${lab_name} --name ${vm_name} --resource-group ${lab_name}
@@ -46,7 +47,7 @@ run_tool_service_pair(){
         sudo rm -rf my_REST_Go
         git clone https://github.com/LALAYANG/my_REST_Go
         cd my_REST_Go
-        bash -x run_restgpt.sh' ${service_port} ${service} ${service_version} ${times}
+        bash -x run_restgpt.sh' ${service_port} ${service} ${service_version} ${times} ${api_key}
         # 'echo' $service $service_version $tool $service_port $times
 }
 
