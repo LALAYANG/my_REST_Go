@@ -1,5 +1,6 @@
 import json
 import sys
+import os
 
 def recursivePrompt(prompt, enum, jsnData):
     try:
