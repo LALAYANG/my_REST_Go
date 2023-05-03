@@ -5,9 +5,6 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt install git-all -y
 
 sudo apt install python3-tk -y
-pip3 install BeautifulSoup4
-pip3 install jsonlines
-pip3 install openai
 
 # Install Common Utilities
 sudo apt-get install -y software-properties-common \
@@ -21,6 +18,13 @@ sudo apt-get install -y openjdk-11-jdk
 # Install Python3
 sudo apt-get install -y python3-pip python3-virtualenv
 
+pip3 install BeautifulSoup4
+pip3 install jsonlines
+pip3 install openai
+
+pip install BeautifulSoup4
+pip install jsonlines
+pip install openai
 
 # Install NodeJS and NPM
 sudo apt-get install -y nodejs npm

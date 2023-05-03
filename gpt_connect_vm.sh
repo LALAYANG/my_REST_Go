@@ -68,7 +68,7 @@ download(){
 
 
 resize_vm_disk
-start_vm
+# start_vm
 setup_m2
 run_tool_service_pair
 wait

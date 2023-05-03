@@ -42,7 +42,7 @@ def run_service_tool(ports_csv):
                         vm_name = available_vm_ports[vm_port][3]
                         resource_group = available_vm_ports[vm_port][4]
                         if service == "erc20-rest-service":
-                            cmd_list = ["echo", service, "RestGPT", version, ", you can run it on", vm_port,vm_host,lab_name,vm_name,resource_group," |tee",lab_name+"_"+vm_port +"_"+vm_name+"_"+restgpt+"_"+service+"_res.log"]
+                            cmd_list = ["echo", service, "RestGPT", version, ", you can run it on", vm_port,vm_host,lab_name,vm_name,resource_group," |tee",lab_name+"_"+vm_port +"_"+vm_name+"_"+"restgpt"+"_"+service+"_res.log"]
                         # elif service == "genome-nexus":
                             # cmd_list = ["echo", service, tool, version, ", you can run it on", vm_port,vm_host,lab_name,vm_name,resource_group," |tee",lab_name+"_"+vm_port +"_"+vm_name+"_"+tool+"_"+service+"_res.log"]
                         else:
