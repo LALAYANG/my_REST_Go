@@ -72,7 +72,8 @@ else
     export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
     export PATH=$JAVA_HOME/bin:$PATH
 fi
-# compile_restgpt
+
+compile_restgpt
 run_multiple_times
 
 echo END at $(date)

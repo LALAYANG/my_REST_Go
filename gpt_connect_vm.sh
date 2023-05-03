@@ -29,9 +29,15 @@ run_tool_service_pair(){
     sshpass -p "YANGc9" ssh -o StrictHostKeyChecking=no -p ${vm_port} -t yangc9@$vm_host '
         sudo apt-get update
         sudo apt-get install git
+        sudo apt install zip -y
         sudo rm -rf my_REST_Go
         git clone https://github.com/LALAYANG/my_REST_Go
         cd my_REST_Go
+        cd uploadm2
+        unzip m2.zip
+        cd home/yangc9
+        cp -r .m2 ~/.m2
+        cd ../../../
         bash -x run_restgpt.sh' ${service_port} ${service} ${service_version} ${times}
         # 'echo' $service $service_version $tool $service_port $times
 }
@@ -53,13 +59,13 @@ download(){
 }     
 
 
-resize_vm_disk
-# start_vm
+# resize_vm_disk
+start_vm
 run_tool_service_pair
 wait
 print_res
-download
-wait
-stop_vm
+# download
+# wait
+# stop_vm
 
 echo END at $(date)
