@@ -5,12 +5,12 @@ version=$3
 timeStamp=$(echo -n $(date "+%Y-%m-%d %H:%M:%S") | shasum | cut -f 1 -d " ")
 
 mkdir -p $(pwd)/logs
-mkdir -p $(pwd)/logs/fuzzinglogs
-mkdir -p $(pwd)/logs/fuzzinglogs/${timeStamp}
+mkdir -p $(pwd)/logs/fuzzing_logs
+mkdir -p $(pwd)/logs/fuzzing_logs/${timeStamp}
 
 mainDir=$(pwd)/REST_Go
 logDir=${mainDir}/logs
-fuzzinglogs=${logDir}/fuzzinglogs/${timeStamp}
+fuzzinglogs=${logDir}/fuzzing_logs/${timeStamp}
 fuzz=${mainDir}/uiuc_tool_tester.py
 report=${mainDir}/report.py
 stopall=${mainDir}/stop_all.sh
