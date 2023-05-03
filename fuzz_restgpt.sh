@@ -4,9 +4,10 @@ version=$3
 
 timeStamp=$(echo -n $(date "+%Y-%m-%d %H:%M:%S") | shasum | cut -f 1 -d " ")
 
-mkdir -p $(pwd)/logs
-mkdir -p $(pwd)/logs/fuzzing_logs
-mkdir -p $(pwd)/logs/fuzzing_logs/${timeStamp}
+mainDir=$(pwd)/REST_Go
+mkdir -p $(pwd)/REST_Go/logs
+mkdir -p $(pwd)/REST_Go/logs/fuzzing_logs
+mkdir -p $(pwd)/REST_Go/logs/fuzzing_logs/${timeStamp}
 
 mainDir=$(pwd)/REST_Go
 logDir=${mainDir}/logs
