@@ -9,8 +9,9 @@ mkdir -p $(pwd)/logs
 mkdir -p $(pwd)/logs/batch
 
 mainDir=$(pwd)/REST_Go
-logDir=${mainDir}/logs
-batchDir=${mainDir}/logs/batch
+curDir=$(pwd)
+logDir=${curDir}/logs
+batchDir=${curDir}/logs/batch
 toolDir=${mainDir}/UIUC-API-Tester/open-api-processor
 fuzz=${mainDir}/fuzz_restgpt.sh
 log=${batchDir}/${timeStamp}.log
